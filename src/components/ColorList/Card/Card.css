@@ -1,0 +1,8 @@
+.card-total {
+  display: flex;
+  font-size: small;
+  margin: 10px 15vw;
+  border-radius: 10px;
+  border: 1px solid rgb(255, 255, 255);
+  overflow: hidden;
+}

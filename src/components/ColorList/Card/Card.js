@@ -1,7 +1,12 @@
 import "./Card.css";
-import Picker from "./HexPicker/Picker"
-import ColorRole from "./ColorRole/ColorRole"
+import Picker from "./Picker/Picker.js";
+import ColorRole from "./ColorRole/ColorRole";
 
-export default function Card(){
-
+export default function Card() {
+  return (
+      <div className="card-total">
+        <ColorRole />
+        <Picker />
+      </div>
+  );
 }

@@ -9,10 +9,10 @@ export default function SchemeList() {
 
   return themes.map(theme => (
     <>
-      <div className="scheme-list" key={theme.id}>
+      <ul className="scheme-list" key={theme.id}>
         <h2>{theme.name}</h2>
         <Cards theme={theme.colors} />
-      </div>
+      </ul>
     </>
   ));
 }

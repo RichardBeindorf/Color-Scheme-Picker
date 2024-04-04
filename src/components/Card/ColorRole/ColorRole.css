@@ -1,5 +1,14 @@
 .color-role {
   width: 30%;
   padding: 4%;
-  background-color: #c3c3c3;
+  background-color: #dadada;
+}
+
+.color-role {
+  margin-bottom: 0px;
+}
+
+.hex-value {
+  font-size: 0.5rem;
+  margin-top: 0px;
 }

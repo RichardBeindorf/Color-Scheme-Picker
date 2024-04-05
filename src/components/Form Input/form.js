@@ -1,19 +1,37 @@
 import "./form.css";
 
 export default function Form({ addTheme }) {
-  function handleSubmit(e) {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    console.log(e.target);
-    console.log(formData);
+  function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    console.log(data);
 
-    const primary = [data.primary, ...data]
-    console.log(data);
-    addTheme(data);
+    const newTheme = {
+      name: data.themeName,
+      colors: [
+        {
+          role: "primary",
+          value: data.primary,
+        },
+        {
+          role: "secondary",
+          value: data.secondary,
+        },
+        {
+          role: "surface",
+          value: data.surface,
+        },
+        {
+          role: "surface-on",
+          value: data["surface-on"],
+        },
+      ],
+    };
+    console.log(newTheme);
 
-    e.target.reset();
+    addTheme(newTheme);
+
+    event.target.reset();
     document.getElementById("color-role").focus();
   }
 
@@ -24,20 +42,41 @@ export default function Form({ addTheme }) {
       <div className="entry-form-fields">
         <div className="entry-form__field">
           <label htmlFor="color-role"></label>
-          <input id="color-role" type="text" />
+          <input id="color-role" name="themeName" type="text" />
         </div>
         <div className="entry-form__field">
           <label htmlFor="add-color__primary"></label>
-          <input id="add-color__primary" name="primary" type="color" />
+          <input
+            id="add-color__primary"
+            className="color"
+            name="primary"
+            type="color"
+            defaultValue="#36ABF4"
+          />
 
           <label htmlFor="add-color__secondary"></label>
-          <input id="add-color__secondary" name="secondary" type="color" />
+          <input
+            id="add-color__secondary"
+            name="secondary"
+            type="color"
+            defaultValue="#36ABF4"
+          />
 
           <label htmlFor="add-color__surface"></label>
-          <input id="add-color__surface" name="surface" type="color" />
+          <input
+            id="add-color__surface"
+            name="surface"
+            type="color"
+            defaultValue="#36ABF4"
+          />
 
           <label htmlFor="add-color__surface-on"></label>
-          <input id="add-color__surface-on" name="surface-on" type="color" />
+          <input
+            id="add-color__surface-on"
+            name="surface-on"
+            type="color"
+            defaultValue="#36ABF4"
+          />
         </div>
 
         <div className="entry-form__button-wrapper">

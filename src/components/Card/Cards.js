@@ -2,7 +2,7 @@ import "./Card.css";
 import Picker from "./Picker/Picker.js";
 import ColorRole from "./ColorRole/ColorRole.js";
 
-export default function Cards({ theme }) {
+export default function Cards({ theme, showDetails, onClick }) {
   console.log(theme);
 
   return theme.map((color) => (

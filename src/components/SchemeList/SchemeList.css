@@ -1,0 +1,21 @@
+.scheme-list {
+  margin: 10 0;
+}
+
+.icon-selector {
+  position: absolute;
+  display: inline;
+  bottom: 1px;
+  left: 10px;
+}
+
+.preview-colors {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 0%;
+}
+
+.scheme-head {
+  position: relative;
+  display: inline;
+}

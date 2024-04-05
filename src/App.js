@@ -14,11 +14,12 @@ function handleAddTheme(newTheme){
   setThemes([newThemeWithID, ...themes]);
 }
 
-function handleDeleteTheme(themeToRemove){
-  console.log("hello im your delete Button", themeToRemove)
-  setThemes(themes.filter((theme) => theme !== themeToRemove));
-}
+function handleDeleteTheme(themeId){
+  console.log("hello im your delete function", themeId)
+  const notDeletedThemes = themes.filter(theme => theme.id !== themeId)
 
+  setThemes(notDeletedThemes)
+}
   return (
     <div className="color-app">
       <header className="header">
@@ -29,7 +30,7 @@ function handleDeleteTheme(themeToRemove){
         <ul>
           {themes.map((theme) => (
             <li key={theme.id}>
-              <SchemeList name={theme.name} colors={theme.colors} deleteTheme={handleDeleteTheme} id={theme.id} />
+              <SchemeList name={theme.name} colors={theme.colors} onDelete={() => handleDeleteTheme(theme.id)}/>
             </li>
           ))}
         </ul>

@@ -5,7 +5,7 @@ import { useState } from "react";
 import { SingleColors } from "../Previews/Preview";
 import { IconSelector } from "@tabler/icons-react";
 
-export default function SchemeList() {
+export default function SchemeList({ name, colors }) {
   const [themes, setThemes] = useState(initialThemes);
   const [showDetails, setShowDetails] = useState(false);
   // const dropdownArrow = (
@@ -15,19 +15,17 @@ export default function SchemeList() {
   function handleDropdown() {
     setShowDetails(!showDetails);
   }
-
-  return themes.map((theme) => (
-    <>
-      <ul className="scheme-list" key={theme.id}>
-        <h2 className="scheme-head">{theme.name}</h2>
+console.log(themes)
+  return <>
+      <div className="scheme-list">
+        <h2 className="scheme-head">{name}</h2>
         <div className="scheme-head" onClick={handleDropdown} >
-          <IconSelector className="icon-selector" stroke={2} size={22} style={{ display: "absolute" }}/>
+          <IconSelector className="icon-selector" stroke={2} size={22}/>
         </div>
         <ul className="preview-colors">
-          {!showDetails && <SingleColors colors={theme.colors} />}
+          {!showDetails && <SingleColors colors={colors} />}
         </ul>
-        {showDetails && <Cards theme={theme.colors} />}
-      </ul>
+        {showDetails && <Cards theme={colors} />}
+      </div>
     </>
-  ));
 }

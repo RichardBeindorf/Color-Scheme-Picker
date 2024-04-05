@@ -16,9 +16,8 @@ function handleAddTheme(newTheme){
 
 function handleDeleteTheme(themes){
   themes.filter((theme) => {
-    theme.
-  })
-}
+  theme.}
+  )}
 
   return (
     <div className="color-app">
@@ -30,7 +29,7 @@ function handleDeleteTheme(themes){
         <ul>
           {themes.map((theme) => (
             <li key={theme.id}>
-              <SchemeList name={theme.name} colors={theme.colors} />
+              <SchemeList name={theme.name} colors={theme.colors} deleteTheme={handleDeleteTheme}/>
             </li>
           ))}
         </ul>

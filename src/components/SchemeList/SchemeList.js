@@ -4,7 +4,7 @@ import { useState } from "react";
 import { SingleColors } from "../Previews/Preview";
 import { IconSelector } from "@tabler/icons-react";
 
-export default function SchemeList({ name, colors }) {
+export default function SchemeList({ name, colors, deleteTheme }) {
   const [showDetails, setShowDetails] = useState(false);
 
   function handleDropdown() {
@@ -21,7 +21,7 @@ export default function SchemeList({ name, colors }) {
         <ul className="preview-colors">    
           {!showDetails && <SingleColors colors={colors} />}
         </ul>
-        {showDetails && <Cards theme={colors} />}
+        {showDetails && <Cards deleteTheme={deleteTheme} theme={colors} />}
       </div>
     </>
   );

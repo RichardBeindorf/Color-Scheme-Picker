@@ -3,7 +3,6 @@ import Picker from "./Picker/Picker.js";
 import ColorRole from "./ColorRole/ColorRole.js";
 
 export default function Cards({ theme, showDetails, onClick }) {
-  console.log(theme);
 
   return theme.map((color) => (
     <div className="card-total" key={color.role}>

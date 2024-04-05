@@ -14,6 +14,12 @@ function handleAddTheme(newTheme){
   setThemes([newThemeWithID, ...themes]);
 }
 
+function handleDeleteTheme(themes){
+  themes.filter((theme) => {
+    theme.
+  })
+}
+
   return (
     <div className="color-app">
       <header className="header">

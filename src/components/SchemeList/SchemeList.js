@@ -23,7 +23,7 @@ export default function SchemeList({ name, colors, onDelete }) {
         </ul>
         {showDetails && (
           <>
-            <Cards theme={colors} />
+            <Cards colors={colors} />
             <button
               className="delete-button"
               onClick={onDelete}

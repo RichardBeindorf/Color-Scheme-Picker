@@ -1,9 +1,10 @@
 import "./Card.css";
 import Picker from "./Picker/Picker.js";
 import ColorRole from "./ColorRole/ColorRole.js";
+import { useState } from "react";
 
 export default function Cards({ theme }) {
-
+// const [colorNames, setColorNames] = useState(colorNames);
 
   return (
     <>

@@ -4,9 +4,10 @@ import SchemeList from "./components/SchemeList/SchemeList";
 import Form from "./components/Form Input/form";
 import { useState } from "react";
 import { v4 as uuid } from "uuid";
+import useLocalStorageState from "use-local-storage-state";
 
 function App() {
-const [themes, setThemes] = useState(initialThemes);
+const [themes, setThemes] = useLocalStorageState("themes", { defaultValue: initialThemes });
 
 function handleAddTheme(newTheme){
   // use UUID to create an ID
@@ -14,12 +15,12 @@ function handleAddTheme(newTheme){
   setThemes([newThemeWithID, ...themes]);
 }
 
-function handleDeleteTheme(themes){
-  themes.filter((theme) => {
-    theme.
-  })
-}
+function handleDeleteTheme(themeId){
+  console.log("hello im your delete function", themeId)
+  const notDeletedThemes = themes.filter(theme => theme.id !== themeId)
 
+  setThemes(notDeletedThemes)
+}
   return (
     <div className="color-app">
       <header className="header">
@@ -30,7 +31,7 @@ function handleDeleteTheme(themes){
         <ul>
           {themes.map((theme) => (
             <li key={theme.id}>
-              <SchemeList name={theme.name} colors={theme.colors} />
+              <SchemeList name={theme.name} colors={theme.colors} onDelete={() => handleDeleteTheme(theme.id)}/>
             </li>
           ))}
         </ul>
